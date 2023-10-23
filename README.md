@@ -20,13 +20,13 @@ To run the script, execute the following command in your terminal or command pro
 python sync.py <source-folder> <replica-folder> <sync-interval-seconds> <log-directory>
 ```
 
-Replace <source-folder> with the path of the source folder you want to synchronize.
+Replace "source-folder" with the path of the source folder you want to synchronize.
 
-Replace <replica-folder> with the path of the replica folder where files will be copied.
+Replace "replica-folder" with the path of the replica folder where files will be copied.
 
-<sync-interval-seconds> is the time interval (in seconds) between synchronization attempts.
+"sync-interval-seconds" is the time interval (in seconds) between synchronization attempts.
 
-<log-directory> is the path where the log file will be created.
+"log-directory" is the path where the log file will be created.
 
 Example:
 
