@@ -8,7 +8,7 @@ Python 3.x installed on your system.
 1. Clone the Repository:
    
 ```
-git clone <repository-url>
+git clone https://github.com/GoncaloRico/File-Sync-Tool.git
 cd file-synchronization-tool
 ```
 
