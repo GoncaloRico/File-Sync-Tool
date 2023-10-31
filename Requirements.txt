@@ -1,0 +1,20 @@
+Requirements:
+
+/- Create script that synchronises 2 folders: "source" and "replica"
+/- Sync must be one-way (source -> replica)
+/- After sync, content of the replica folder should be modified to exactly match contents of source
+/- Sync should be done periodically
+/- File creation, copying and removal operations should be logged to a file and to the console output
+/- Need to check that 4 arguments were inputted in command line:
+    - Source folder path
+    - Replica folder path
+    - Sync intervals
+    - Log file path
+
+Restrictions:
+
+/- Undesirable to use 3rd party libraries that implement folder sync (dirsync)
+
+Recommendations:
+
+/- Allowed to use other libraries to implement well-known algorithms
