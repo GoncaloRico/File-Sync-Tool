@@ -17,7 +17,8 @@ def main():
 
 
 def check_args():
-    if len(sys.argv) <= 4:
+    # Checks if user inputted the correct amount of arguments when running the program, sends an error message if user inserted too many or too little arguments
+    if len(sys.argv) <= 4 or len(sys.argv) > 5:
         sys.exit(
             "Please make sure you input 4 arguments in the following order:\n - Source folder path\n - Replica folder path\n - Sync intervals\n - Log file path "
         )
@@ -52,8 +53,8 @@ def copy(source, replica, log_file):
 
 
 def each_file(source, replica, log_path):
-    # Open the log file in append mode
     with open(log_path, "a") as log_file:
+        # Open the log file in append mode
         for folderName, subfolders, filenames in os.walk(source):
             message = f"The current folder is {folderName}"
             log_file.write(message + "\n")
