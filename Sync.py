@@ -18,15 +18,18 @@ def main():
 
 def check_args():
     # Checks if user inputted the correct amount of arguments when running the program, sends an error message if user inserted too many or too little arguments
-    if len(sys.argv) <= 4 or len(sys.argv) > 5:
+    if len(sys.argv) != 5:
         sys.exit(
-            "Please make sure you input 4 arguments in the following order:\n - Source folder path\n - Replica folder path\n - Sync intervals\n - Log file path "
+            "Please make sure you input 4 arguments in the following order:\n - Source folder path\n - Replica folder path\n - Sync intervals in seconds\n - Log file path "
         )
     else:
         return (sys.argv[1], sys.argv[2], int(sys.argv[3]), sys.argv[4])
 
 
 def create_log_file(log_directory):
+    # Ensure that the log directory exists, create it if it doesn't
+    if not os.path.exists(log_directory):
+        os.makedirs(log_directory)
     # Create the log file path using the specified directory and fixed file name
     log_file_path = os.path.join(log_directory, "Log.txt")
     return log_file_path
@@ -72,6 +75,9 @@ def each_file(source, replica, log_path):
                 new_path = folderName.replace(source, replica)
                 src_file = os.path.join(folderName, filename)
                 replica_file = os.path.join(new_path, filename)
+                # Compare file sizes first
+                if os.path.exists(replica_file) and os.path.getsize(src_file) == os.path.getsize(replica_file):
+                    continue  # Skip file if size matches
                 src_file_hash = calculate_file_hash(src_file)
                 replica_file_hash = ""
                 # If replica file exists, calculate its hash
